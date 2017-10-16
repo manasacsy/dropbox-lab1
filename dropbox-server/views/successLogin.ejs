@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Successful Login</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>User Information</h1>
+    <div>
+	     
+                    <p><strong>First Name: </strong><%= data.firstname%></p>
+                    <p><strong>Last Name: </strong><%= data.lastname %></p>
+         <p><strong>Files: </strong></p>
+         <% for(var j in data.files) {
+             %>
+                    <p><%= data.files[j] %></p>
+        <% } %>
+            		<br>       
+           
+	</div>
+       <form id="uploadForm"          
+          action="fileupload"
+          method="post">
+      <input type="file" name="testData" />
+           <a href="/CMPE273-Lab1.pdf" download>abc</a>
+<!--
+           <a href="file:\C:\Users\Public\CMPE273-Lab1.pdf" download>abc</a>
+-->
+      <input type="submit" value="Upload Image" name="submit">
+      <span id = "status"></span>
+    </form>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script>
+  $(document).ready(function() {
+
+     $('#uploadForm').submit(function() {
+		 $("#status").empty().text("File is uploading...");
+
+        $(this).ajaxSubmit({
+
+            error: function(xhr) {
+		            alert(1);
+            },
+
+            success: function(response) {
+					console.log(response)
+					$("#status").empty().text(response);
+            }
+	});
+
+	return false;
+    });    
+});
+     
+  </script>
+    <script>
+       
+ 
+
+  function myfunc(){
+            alert(1);
+        
+  }
+    </script>
+  </body>
+</html>
