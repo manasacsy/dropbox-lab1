@@ -195,7 +195,7 @@ if(data.length !== 0){
         </Modal.Header>
         <Modal.Body>
             <input type = 'text' onChange={event=>{this.setState({shareWith:event.target.value});}}/>
-            <span className="padding-left-20"><Button type='button' onClick={this.abc}>Done</Button></span> 
+            <span className="padding-left-20"><Button type='button' onClick={this.shareRes}>Done</Button></span> 
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
